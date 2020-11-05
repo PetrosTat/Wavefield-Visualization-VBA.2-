@@ -15,10 +15,9 @@ hexa_points = Array.with( ~p1=Complex(-100,0).asPoint,~p2=Complex(-50,-87.5).asP
 ~p1_z = Complex(-200,200).asPoint;   ~p2_z = Complex(120,-120).asPoint;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Z_axis
 ~knob_rotation_x = Knob(w,Rect(700,550,50,50)).action_({arg obj;
-	var;
-  =obj.value.linlin(0,1,0,6.28);
-v.refresh;
-~p1_z = Polar(200,theta_p1).asPoint;   ~p2_z = Polar(200,theta_p2).asPoint;
+	//var ;
+  //=obj.value.linlin(0,1,0,6.28);
+//v.refresh;
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////waves_radius
 radius  = Array.with(
@@ -63,8 +62,7 @@ Pen.stroke;
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////S_points
 	Color(red:0,green:1,blue:1,alpha:0.5).set;
 	Pen.width=4/3;
-	p1_c=Pen.addOval(Rect.aboutPoint(~p1,~p1_radius,~p1_radius));
-	p2_c=Pen.addOval(Rect.aboutPoint(~p2,~p2_radius,~p2_radius));
+	p1_c=Pen.addOval(Rect.aboutPoint(~p1,~p1_radius,~p1_radius));p2_c=Pen.addOval(Rect.aboutPoint(~p2,~p2_radius,~p2_radius));
 	p3_c=Pen.addOval(Rect.aboutPoint(~p3,~p3_radius,~p3_radius));p4_c=Pen.addOval(Rect.aboutPoint(~p4,~p4_radius,~p4_radius));
 	p5_c=Pen.addOval(Rect.aboutPoint(~p5,~p5_radius,~p5_radius));p6_c=Pen.addOval(Rect.aboutPoint(~p6,~p6_radius,~p6_radius));
 	Pen.width=3/2;
