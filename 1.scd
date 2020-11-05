@@ -14,18 +14,29 @@ var  p1,p2,p3,p4,p5,p6;
     ~p1_radius = 10;~p2_radius = 10;~p3_radius = 10;~p4_radius = 10;~p5_radius = 10;~p6_radius = 10;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////points
 points  = Array.with(
-~slider1 = Slider2D(w, Rect(15,520,80,100)).action_({ arg obj1,obj2;   var magn, angl;  angl = obj1.x.linlin(0,1,0,6.28);magn = obj2.y.linlin(0,1,0,120); ~magn1.value_(obj2.value.linlin(0,1,0.1,120)); ~ang1.value_(obj1.value.linlin(0,1,1,12)); ~p1=Polar(magn,angl).asPoint; v.refresh;}),
+~slider1 = Slider2D(w, Rect(15,520,80,100)).action_({ arg obj;   var magn, angl;  angl = obj.x.linlin(0,1,0,6.28);magn = obj.y.linlin(0,1,0,120);
+		~ang1.value_(obj.x.linlin(0,1,1,12));~magn1.value_(obj.y.linlin(0,1,0.1,120));
+		~p1=Polar(magn,angl).asPoint; v.refresh;}),
 
-	~slider2 = Slider2D(w, Rect(110,520,80,100)).action_({ arg obj1,obj2;   var magn, angl;  angl = obj1.x.linlin(0,1,0,6.28);magn = obj2.y.linlin(0,1,0,120); ~magn2.value_(obj2.value.linlin(0,1,0.1,120)); ~ang2.value_(obj1.value.linlin(0,1,1,12)); ~p2=Polar(magn,angl).asPoint; v.refresh;}),
+	~slider2 = Slider2D(w, Rect(110,520,80,100)).action_({ arg obj;   var magn, angl;  angl = obj.x.linlin(0,1,0,6.28);magn = obj.y.linlin(0,1,0,120);
+		 ~ang2.value_(obj.x.linlin(0,1,1,12));~magn2.value_(obj.y.linlin(0,1,0.1,120));
+		~p2=Polar(magn,angl).asPoint; v.refresh;}),
 
-	~slider3 = Slider2D(w, Rect(205,520,80,100)).action_({ arg obj1,obj2;   var magn, angl;  angl = obj1.x.linlin(0,1,0,6.28);magn = obj2.y.linlin(0,1,0,120); ~magn3.value_(obj2.value.linlin(0,1,0.1,120)); ~ang3.value_(obj1.value.linlin(0,1,1,12)); ~p3=Polar(magn,angl).asPoint; v.refresh;}),
+	~slider3 = Slider2D(w, Rect(205,520,80,100)).action_({ arg obj;   var magn, angl;  angl = obj.x.linlin(0,1,0,6.28);magn = obj.y.linlin(0,1,0,120);
+		~ang3.value_(obj.x.linlin(0,1,1,12));~magn3.value_(obj.y.linlin(0,1,0.1,120));
+		~p3=Polar(magn,angl).asPoint; v.refresh;}),
 
-	~slider4 = Slider2D(w, Rect(300,520,80,100)).action_({ arg obj1,obj2;   var magn, angl;  angl = obj1.x.linlin(0,1,0,6.28);~ang4.value_(obj1.value.linlin(0,1,1,12));magn = obj2.y.linlin(0,1,0,120); ~magn4.vvalue_(obj2.value.linlin(0,1,0.1,120));~ang5.value_(obj1.value.linlin(0,1,1,12));  ~p4=Polar(magn,angl).asPoint; v.refresh;}),
+	~slider4 = Slider2D(w, Rect(300,520,80,100)).action_({ arg obj;   var magn, angl;  angl = obj.x.linlin(0,1,0,6.28);magn = obj.y.linlin(0,1,0,120);
+		~ang4.value_(obj.x.linlin(0,1,1,12));~magn4.value_(obj.y.linlin(0,1,0.1,120));
+		~p4=Polar(magn,angl).asPoint; v.refresh;}),
 
-	~slider5 = Slider2D(w, Rect(395,520,80,100)).action_({ arg obj1,obj2;   var magn, angl;  angl = obj1.x.linlin(0,1,0,6.28);
-	magn = obj2.y.linlin(0,1,0,120); ~magn5.value_(obj2.value.linlin(0,1,0.1,120));  ~p5=Polar(magn,angl).asPoint; v.refresh;}),
+	~slider5 = Slider2D(w, Rect(395,520,80,100)).action_({ arg obj;   var magn, angl;  angl = obj.x.linlin(0,1,0,6.28);magn = obj.y.linlin(0,1,0,120);
+	~ang5.value_(obj.x.linlin(0,1,1,12));~magn5.value_(obj.y.linlin(0,1,0.1,120));
+		~p5=Polar(magn,angl).asPoint; v.refresh;}),
 
-	~slider6 = Slider2D(w, Rect(490,520,80,100)).action_({ arg obj1,obj2;   var magn, angl;  angl = obj1.x.linlin(0,1,0,6.28);magn = obj2.y.linlin(0,1,0,120); ~magn6.value_(obj2.value.linlin(0,1,0.1,120));  ~ang6.value_(obj1.value.linlin(0,1,1,12));~p6=Polar(magn,angl).asPoint; v.refresh;})
+	~slider6 = Slider2D(w, Rect(490,520,80,100)).action_({ arg obj;   var magn, angl;  angl = obj.x.linlin(0,1,0,6.28);magn = obj.y.linlin(0,1,0,120);
+		~ang6.value_(obj.x.linlin(0,1,1,12));~magn6.value_(obj.y.linlin(0,1,0.1,120));
+		~p6=Polar(magn,angl).asPoint; v.refresh;})
 );
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Z_axis
 ~knob_z=Knob(w,Rect(585,550,50,50)).action_({arg obj;
@@ -51,18 +62,18 @@ radius  = Array.with(
 ~np10 = NumberBox(w, Rect(520,180,25,20)).value_(1).clipLo_(1).clipHi_(120).decimals_(0).action_({  arg obj; ~slider10.valueAction_(obj.value.linlin(1,120,0,1))});
 ~np11 = NumberBox(w, Rect(520,235,25,20)).value_(1).clipLo_(1).clipHi_(120).decimals_(0).action_({  arg obj; ~slider11.valueAction_(obj.value.linlin(1,120,0,1))});
 ~np12 = NumberBox(w, Rect(520,290,25,20)).value_(1).clipLo_(1).clipHi_(120).decimals_(0).action_({  arg obj; ~slider12.valueAction_(obj.value.linlin(1,120,0,1))});
-~ang1 = NumberBox(w, Rect(15,640,25,20)).value_(1).clipLo_(0.1).clipHi_(6.28).decimals_(2).action_({  arg obj1; ~slider1.valueAction_(obj1.value.linlin(0.1,6.28,0,1))});
-~ang2 = NumberBox(w, Rect(110,640,25,20)).value_(1).clipLo_(0.1).clipHi_(6.28).decimals_(2).action_({ arg obj1; ~slider2.valueAction_(obj1.value.linlin(0.1,6.28,0,1))});
-~ang3 = NumberBox(w, Rect(205,640,25,20)).value_(1).clipLo_(0.1).clipHi_(6.28).decimals_(2).action_({ arg obj1; ~slider3.valueAction_(obj1.value.linlin(0.1,6.28,0,1))});
-~ang4 = NumberBox(w, Rect(300,640,25,20)).value_(1).clipLo_(0.1).clipHi_(6.28).decimals_(2).action_({ arg obj1; ~slider4.valueAction_(obj1.value.linlin(0.1,6.28,0,1))});
-~ang5 = NumberBox(w, Rect(395,640,25,20)).value_(1).clipLo_(0.1).clipHi_(6.28).decimals_(2).action_({ arg obj1; ~slider5.valueAction_(obj1.value.linlin(0.1,6.28,0,1))});
-~ang6 = NumberBox(w, Rect(490,640,25,20)).value_(1).clipLo_(0.1).clipHi_(6.28).decimals_(2).action_({ arg obj1; ~slider6.valueAction_(obj1.value.linlin(0.1,6.28,0,1))});
-~magn1 = NumberBox(w, Rect(55,640,25,20)).value_(1).clipLo_(0.1).clipHi_(120).decimals_(1).action_({ arg obj2; ~slider1.valueAction_(obj2.value.linlin(0.1,120,0,1))});
-~magn2 = NumberBox(w, Rect(150,640,25,20)).value_(1).clipLo_(0.1).clipHi_(120).decimals_(1).action_({ arg obj2; ~slider2.valueAction_(obj2.value.linlin(0.1,120,0,1))});
-~magn3 = NumberBox(w, Rect(245,640,25,20)).value_(1).clipLo_(0.1).clipHi_(120).decimals_(1).action_({ arg obj2; ~slider3.valueAction_(obj2.value.linlin(0.1,120,0,1))});
-~magn4 = NumberBox(w, Rect(345,640,25,20)).value_(1).clipLo_(0.1).clipHi_(120).decimals_(1).action_({ arg obj2; ~slider4.valueAction_(obj2.value.linlin(0.1,120,0,1))});
-~magn5 = NumberBox(w, Rect(435,640,25,20)).value_(1).clipLo_(0.1).clipHi_(120).decimals_(1).action_({ arg obj2; ~slider5.valueAction_(obj2.value.linlin(0.1,120,0,1))});
-~magn6 = NumberBox(w, Rect(530,640,25,20)).value_(1).clipLo_(0.1).clipHi_(120).decimals_(1).action_({ arg obj2; ~slider6.valueAction_(obj2.value.linlin(0.1,120,0,1))});
+~ang1 = NumberBox(w, Rect(15,640,25,20)).value_(1).clipLo_(0.1).clipHi_(6.28).decimals_(2).action_({  arg obj; ~slider1.valueAction_(obj.x.linlin(0,6.28,0,1))});
+~ang2 = NumberBox(w, Rect(110,640,25,20)).value_(1).clipLo_(0.1).clipHi_(6.28).decimals_(2).action_({ arg obj; ~slider2.valueAction_(obj.x.linlin(0,6.28,0,1))});
+~ang3 = NumberBox(w, Rect(205,640,25,20)).value_(1).clipLo_(0.1).clipHi_(6.28).decimals_(2).action_({ arg obj; ~slider3.valueAction_(obj.x.linlin(0,6.28,0,1))});
+~ang4 = NumberBox(w, Rect(300,640,25,20)).value_(1).clipLo_(0.1).clipHi_(6.28).decimals_(2).action_({ arg obj; ~slider4.valueAction_(obj.x.linlin(0,6.28,0,1))});
+~ang5 = NumberBox(w, Rect(395,640,25,20)).value_(1).clipLo_(0.1).clipHi_(6.28).decimals_(2).action_({ arg obj; ~slider5.valueAction_(obj.x.linlin(0,6.28,0,1))});
+~ang6 = NumberBox(w, Rect(490,640,25,20)).value_(1).clipLo_(0.1).clipHi_(6.28).decimals_(2).action_({ arg obj; ~slider6.valueAction_(obj.x.linlin(0,6.28,0,1))});
+~magn1 = NumberBox(w, Rect(55,640,25,20)).value_(1).clipLo_(0.1).clipHi_(120).decimals_(1).action_({ arg obj; ~slider1.valueAction_(obj.y.linlin(0.1,120,0,1))});
+~magn2 = NumberBox(w, Rect(150,640,25,20)).value_(1).clipLo_(0.1).clipHi_(120).decimals_(1).action_({ arg obj; ~slider2.valueAction_(obj.y.linlin(0.1,120,0,1))});
+~magn3 = NumberBox(w, Rect(245,640,25,20)).value_(1).clipLo_(0.1).clipHi_(120).decimals_(1).action_({ arg obj; ~slider3.valueAction_(obj.y.linlin(0.1,120,0,1))});
+~magn4 = NumberBox(w, Rect(345,640,25,20)).value_(1).clipLo_(0.1).clipHi_(120).decimals_(1).action_({ arg obj; ~slider4.valueAction_(obj.y.linlin(0.1,120,0,1))});
+~magn5 = NumberBox(w, Rect(435,640,25,20)).value_(1).clipLo_(0.1).clipHi_(120).decimals_(1).action_({ arg obj; ~slider5.valueAction_(obj.y.linlin(0.1,120,0,1))});
+~magn6 = NumberBox(w, Rect(530,640,25,20)).value_(1).clipLo_(0.1).clipHi_(120).decimals_(1).action_({ arg obj; ~slider6.valueAction_(obj.y.linlin(0.1,120,0,1))});
 );
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////Text
 StaticText(w,Rect(15,625,25,20)).string_("angle").background_(Color.gray).align = \center;
