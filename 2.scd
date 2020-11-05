@@ -10,14 +10,16 @@ var  p1,p2,p3,p4,p5,p6;
     w = Window("S",Rect(600,70,830,660),scroll:false).front.alwaysOnTop_(true);
     w.alpha = 0.98;  w.view.background = Color.white;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////points
-    ~p1=Polar(0,0).asPoint;~p2=Polar(0,0).asPoint;~p3=Polar(0,0).asPoint; ~p4=Polar(0,0).asPoint; ~p5=Polar(0,0).asPoint; ~p6=Polar(0,0).asPoint;
+   ~p1=Complex(-100,0).asPoint;~p2=Complex(-50,-87.5).asPoint;~p3=Complex(50,-87.5).asPoint; ~p4=Complex(100,0).asPoint; ~p5=Complex(50,87.5).asPoint; ~p6=Complex(-50,87.5).asPoint;
+//////////////////////////////////////////////////////////////////////////////////////////////////z_axis_line_points
+~p1_z = Complex(-200,200).asPoint;   ~p2_z = Complex(120,-120).asPoint;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Z_axis
-~knob_z=Knob(w,Rect(700,550,50,50)).action_({arg obj;
-	var theta_p1, theta_p2;
-	theta_p1  =obj.value.linlin(0,1,0,6.28);   theta_p2 =obj.value.linlin(0,1,3.14,9.42);
-	v.refresh;
-	~p1_z = Polar(200,theta_p1).asPoint;   ~p2_z = Polar(200,theta_p2).asPoint;
-});
+//~knob_z=Knob(w,Rect(700,550,50,50)).action_({arg obj;
+//	var theta_p1, theta_p2;
+//	theta_p1  =obj.value.linlin(0,1,0,6.28);   theta_p2 =obj.value.linlin(0,1,3.14,9.42);
+//	v.refresh;
+//	~p1_z = Polar(200,theta_p1).asPoint;   ~p2_z = Polar(200,theta_p2).asPoint;
+//});
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////waves_radius
 radius  = Array.with(
 ~slider7 = Slider(w, Rect(700,15,80,30)).action_({ arg obj;~p1_radius = obj.value.linlin(0,1,0,120); ~np7.value_(obj.value.linlin(0,1,0,120));v.refresh;}),
@@ -55,7 +57,7 @@ v.drawFunc ={
 	//////////////////////////////////////////////////////////////////////////////////////////////////////_axis_sphere
 	Color(red:0,green:0,blue:0,alpha:0.8).set;
    Pen.width=1/2;
-y_axis=Pen.line(0@(-200),0@200);x_axis= Pen.line((-200)@0,200@0);z_axis= Pen.line(~p1_z,~p2_z );
+y_axis=Pen.line(0@(-300),0@300);x_axis= Pen.line((-300)@0,300@0);z_axis= Pen.line(~p1_z,~p2_z );
 //	circle=Pen.strokeOval(Rect.aboutPoint(0@0,200,200));
 Pen.stroke;
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////S_points
